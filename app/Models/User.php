@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Laratrust\Traits\LaratrustUserTrait;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
+    use HasRoles;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -20,7 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fname',
+        'lname',
         'email',
         'password',
     ];
