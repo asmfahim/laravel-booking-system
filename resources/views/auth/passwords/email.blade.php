@@ -17,7 +17,7 @@
                 </div>
             @enderror
 
-            <p style="font-family:SansaSoft,Calibri,sans-serif;font-weight: 300;font-size: 30px;">Curtin Booking Genie</p>
+            <p style="font-family:SansaSoft,Calibri,sans-serif;font-weight: 300;font-size: 30px;">Nilai Booking System</p>
             <form action="{{ route('password.email') }}" method="post">
                 @csrf
                 <div class="form-group">

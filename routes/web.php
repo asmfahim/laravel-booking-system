@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
@@ -19,4 +20,13 @@ Route::get('/', [LoginController::class, 'showLoginForm']);
 
 Auth::routes();
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::middleware('auth')->group(function(){
+    //Route For Dashboard View
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    //Route For User view,Create,Update,Delete
+    Route::resource('user', UserController::class,['names'=>'user'])->except([ 'show','create']);
+
+
+});

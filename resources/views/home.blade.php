@@ -1,33 +1,19 @@
 @extends('layouts.app')
 @section('title','Dashboard')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+    @php
+        $usr = Auth::guard('web')->user();
+        $roleName = $usr->getRoleNames()[0];
+    @endphp
 
 <div class="">
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 1em;">
             <p class="top-note">Welcome
-{{--                <span>  <?php echo getUserAccessRoleByID($_SESSION['user_role_id']); ?> </span>--}}
+                <span>  @php echo $roleName; @endphp </span>
+
             </p>
         </div>
     </div>

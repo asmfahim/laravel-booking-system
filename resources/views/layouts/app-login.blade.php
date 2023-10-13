@@ -15,8 +15,8 @@
     {{--    <meta property="og:description" content="Nilai Booking System" />--}}
     {{--    <meta property="og:image" content="https://www.nilai.edu.my/" />--}}
     <!--favicon-->
-    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/Curtin-logo.png')}}" sizes="16x16">
-    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/Curtin-logo.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/nilai.png')}}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/nilai.png')}}" sizes="32x32">
 
     <!-- for IE -->
     <link rel="icon" type="image/x-icon" href="{{asset('/nilaibooking/img/nilailogo.ico')}}">
@@ -70,7 +70,7 @@
         <a class="hiddenanchor" id="signup"></a>
         <a class="hiddenanchor" id="signin"></a>
         <a href="{{url('/')}}">
-        <img src="{{asset('public/nilaibooking/img/Curtin-logo.png')}}" alt="Logo" width="150" class="center">
+        <img src="{{asset('public/nilaibooking')}}/img/nilai.png" alt="Logo" width="90" class="center">
         </a>
 
         @yield('content')

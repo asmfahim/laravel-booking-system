@@ -1,3 +1,7 @@
+@php
+    $usr = Auth::guard('web')->user();
+    $roleName = $usr->getRoleNames()[0];
+@endphp
 
 <!-- top navigation -->
 <div class="top_nav">
@@ -13,7 +17,7 @@
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <img src="{{asset('public/nilaibooking')}}/img/user.png" alt="">
-{{--                        <?php echo getUserAccessRoleByID($_SESSION['user_role_id']); ?> --}}
+                        @php echo $roleName; @endphp
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">

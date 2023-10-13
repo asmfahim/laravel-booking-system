@@ -48,6 +48,8 @@
 
     <!-- onload modal CDN -->
     <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- amchart css -->
 
     <link rel="stylesheet" type="text/css" href="{{asset('public')}}/vendors/jquerysteps/css/jquery.steps.css ">
     <link rel="stylesheet" type="text/css" href="{{asset('public')}}/vendors/jquerysteps/css/main.css ">
@@ -56,9 +58,19 @@
     <script src="{{asset('public')}}/vendors/jquery/dist/jquery.min.js "></script>
     <script src="{{asset('public')}}/vendors/jquerysteps/js/jquery.steps.js "></script>
 
+    <style>
+        @yield('style-css')
+    </style>
+
     <!-- Scripts -->
 {{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
 </head>
+
+@php
+    $usr = Auth::guard('web')->user();
+    $roleName = $usr->getRoleNames()[0];
+@endphp
+
 <body class="nav-md">
 <div class="container body">
     <div class="main_container">
@@ -193,10 +205,26 @@
 <script src="{{asset('public')}}/vendors/jszip/dist/jszip.min.js"></script>
 <script src="{{asset('public')}}/vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="{{asset('public')}}/vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('public')}}/build/js/custom.js"></script>
 
+{{--Toster message--}}
+    <script type="text/javascript">
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        toastr.error("{!! $error !!}");
+        @endforeach
+        @endif
+    </script>
+
+    @if (Session::has('success'))
+        <script type="text/javascript">
+            toastr.success("{!! Session::get('success') !!}");
+        </script>
+    @endif
 
 <!-- Initialize datetimepicker -->
 <script>
@@ -237,6 +265,10 @@
         $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
     });
 </script>
+
+
+    @yield('script')
+
 
 </body>
 
