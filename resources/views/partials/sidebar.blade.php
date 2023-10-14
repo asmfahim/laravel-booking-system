@@ -61,13 +61,7 @@
                         <a href="#">Booking Category<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li>
-                                <a href="assign_menu.php">Category List</a>
-                            </li>
-                            <li>
-                                <a href="create_menu.php">Category Create</a>
-                            </li>
-                            <li>
-                                <a href="create_menu.php">Category Edit</a>
+                                <a href="{{route('category.index')}}">Category List</a>
                             </li>
                         </ul>
                     </li>
@@ -75,13 +69,7 @@
                         <a href="#">Booking Sub Category<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li>
-                                <a href="assign_menu.php">Sub Category List</a>
-                            </li>
-                            <li>
-                                <a href="create_menu.php">Sub Category Create</a>
-                            </li>
-                            <li>
-                                <a href="create_menu.php">Sub Category Edit</a>
+                                <a href="{{route('subcategory.index')}}">Sub Category List</a>
                             </li>
                         </ul>
                     </li>
