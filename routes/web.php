@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function(){
 
     //Route for subcategory crud
     Route::resource('subcategory', SubCategoryController::class,['names'=>'subcategory'])->except([ 'show','create']);
+
+    //Route for subcategory crud
+    Route::resource('announcement', AnnouncementController::class,['names'=>'announcement'])->except([ 'show']);
 
 
 });

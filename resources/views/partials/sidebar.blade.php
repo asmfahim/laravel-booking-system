@@ -33,7 +33,9 @@
                 <ul class="nav side-menu" style="">
                     <li class="current-page">
                         <a href="{{route('dashboard')}}">Dashboard</a>
-{{--                        <ul class="nav child_menu" style=""></ul>--}}
+                    </li>
+                    <li class="current-page">
+                        <a href="{{route('dashboard')}}">Notice Board</a>
                     </li>
                     <li class="">
                         <a href="#">User<span class="fa fa-chevron-down"></span></a>
@@ -74,6 +76,17 @@
                         </ul>
                     </li>
                     <li class="">
+                        <a href="#">Announcement<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none;">
+                            <li>
+                                <a href="{{route('announcement.index')}}">Announcement List</a>
+                            </li>
+                            <li>
+                                <a href="{{route('announcement.create')}}">Announcement Create</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
                         <a href="#">Booking<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li>
@@ -87,6 +100,7 @@
                             </li>
                         </ul>
                     </li>
+
 
                     <li class="">
                         <a href="#">Menu Management<span class="fa fa-chevron-down"></span></a>

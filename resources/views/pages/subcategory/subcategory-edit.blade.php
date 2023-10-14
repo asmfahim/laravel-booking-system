@@ -19,7 +19,8 @@
             <div class="x_content">
 
                 <div class="form-wrapper newForm">
-                    <form action="{{route('subcategory.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('subcategory.update',$subcategories->id)}}" method="post" enctype="multipart/form-data">
+                        @method('PUT')
                         @csrf
                         <div class="row">
                             <div class="col-md-6 form-group">
