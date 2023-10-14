@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
@@ -27,6 +29,8 @@ Route::middleware('auth')->group(function(){
 
     //Route For User view,Create,Update,Delete
     Route::resource('user', UserController::class,['names'=>'user'])->except([ 'show','create']);
+    Route::resource('roles', RolesController::class,['names'=>'roles'])->except([ 'show']);
+    Route::resource('permission',PermissionsController::class,['names' =>'permission'])->except(['create','show','edit','update','destroy']);
 
 
 });

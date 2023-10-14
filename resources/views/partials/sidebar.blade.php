@@ -47,13 +47,13 @@
                         <a href="#">Roles & Permissions<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li>
-                                <a href="assign_menu.php">Roles List</a>
+                                <a href="{{route('roles.index')}}">Roles List</a>
                             </li>
                             <li>
-                                <a href="create_menu.php">Role Create</a>
+                                <a href="{{route('roles.create')}}">Role Create</a>
                             </li>
                             <li>
-                                <a href="create_menu.php">Role Edit</a>
+                                <a href="{{route('permission.index')}}">Permission Create</a>
                             </li>
                         </ul>
                     </li>

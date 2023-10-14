@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $user = User::all();
         $roles = Role::all();
-        return view('pages.user-view',compact('user','roles'));
+        return view('pages.user.user-view',compact('user','roles'));
 
     }
 
@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all();
-        return view('pages.user-edit',compact('user','roles'));
+        return view('pages.user.user-edit',compact('user','roles'));
     }
 
     /**
