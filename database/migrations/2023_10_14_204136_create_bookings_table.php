@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
+            $table->integer('subcategory_id');
+            $table->integer('user_id');
+            $table->string('title');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

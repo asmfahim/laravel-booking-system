@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
@@ -47,6 +49,17 @@ Route::middleware('auth')->group(function(){
 
     //Route for subcategory crud
     Route::resource('announcement', AnnouncementController::class,['names'=>'announcement'])->except([ 'show']);
+
+    //Route for subcategory crud
+    Route::resource('booking', BookingController::class,['names'=>'booking'])->except([ 'create','show','edit','update']);
+//    Route::get('/booking',[BookingController::class,'index'])->name('booking.index');
+//    Route::post('/booking/store',[BookingController::class,'store'])->name('booking.store');
+
+    Route::get('/booking/confirm/{id}',[AjaxController::class,'confirm'])->name('booking.confirm');
+    Route::get('/booking/page',[AjaxController::class,'index'])->name('booking.page');
+    Route::get('/booking/data',[AjaxController::class,'Booking_Ajax'])->name('booking.ajax');
+    Route::post('/booking/delete',[AjaxController::class,'Booking_Delete'])->name('booking.delete');
+    Route::get('/booking/ajax/{id}',[AjaxController::class,'Sub_Ajax'])->name('subcategory.ajax');
 
 
 });

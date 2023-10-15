@@ -37,6 +37,12 @@
                     <li class="current-page">
                         <a href="{{route('dashboard')}}">Notice Board</a>
                     </li>
+                    <li class="current-page">
+                        <a href="{{route('booking.page')}}">Booking</a>
+                    </li>
+                    <li class="current-page">
+                        <a href="{{route('booking.index')}}">Booking Confirmation</a>
+                    </li>
                     <li class="">
                         <a href="#">User<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
@@ -90,7 +96,7 @@
                         <a href="#">Booking<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none;">
                             <li>
-                                <a href="assign_menu.php">Booking List</a>
+                                <a href="{{route('booking.index')}}">Booking</a>
                             </li>
                             <li>
                                 <a href="create_menu.php">Booking Create</a>

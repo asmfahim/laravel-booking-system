@@ -15,8 +15,8 @@
 {{--    <meta property="og:description" content="Nilai Booking System" />--}}
 {{--    <meta property="og:image" content="https://www.nilai.edu.my/" />--}}
     <!--favicon-->
-    <link rel="icon" type="image/png" href="{{asset('/nilaibookin/img/Curtin-logo.png')}}" sizes="16x16">
-    <link rel="icon" type="image/png" href="{{asset('/nilaibooking/img/Curtin-logo.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/Curtin-logo.png')}}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{asset('public/nilaibooking/img/Curtin-logo.png')}}" sizes="32x32">
 
     <!-- for IE -->
     <link rel="icon" type="image/x-icon" href="{{asset('/nilaibooking/img/nilailogo.ico')}}">
@@ -28,6 +28,7 @@
 
     <!-- Bootstrap -->
     <link href="{{asset('public')}}/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link href="{{asset('public')}}/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -41,13 +42,16 @@
     <link href="{{asset('public')}}/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('public')}}/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Custom Theme Style -->
     <link href="{{asset('public')}}/build/css/custom.css " rel="stylesheet">
     <link href="{{asset('public')}}/build/css/modal.css " rel="stylesheet">
     <link href="{{asset('public')}}/build/css/timeline-style.css " rel="stylesheet">
 
     <!-- onload modal CDN -->
-    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+{{--    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>--}}
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- amchart css -->
 
@@ -55,12 +59,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public')}}/vendors/jquerysteps/css/main.css ">
     <link rel="stylesheet" type="text/css" href="{{asset('public')}}/vendors/jquerysteps/css/normalize.css ">
 
+
     <script src="{{asset('public')}}/vendors/jquery/dist/jquery.min.js "></script>
     <script src="{{asset('public')}}/vendors/jquerysteps/js/jquery.steps.js "></script>
 
-    <style>
-        @yield('style-css')
-    </style>
+    @yield('style-css')
+
 
     <!-- Scripts -->
 {{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
@@ -165,8 +169,12 @@
 
 
 <!-- jQuery -->
-<script src="{{asset('public')}}/vendors/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('public')}}/vendors/jquery/dist/jquery.min.js "></script>
+
+
+
 <!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
 <script src="{{asset('public')}}/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="{{asset('public')}}/vendors/fastclick/lib/fastclick.js"></script>
@@ -208,8 +216,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+
+
 <!-- Custom Theme Scripts -->
 <script src="{{asset('public')}}/build/js/custom.js"></script>
+
+@yield('script')
 
 {{--Toster message--}}
     <script type="text/javascript">
@@ -267,7 +280,7 @@
 </script>
 
 
-    @yield('script')
+
 
 
 </body>
