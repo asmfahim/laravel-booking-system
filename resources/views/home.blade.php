@@ -32,52 +32,29 @@
     <div class="clearfix"></div>
 
     <div class="row top_tiles top-row">
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" onmouseover="hovereffect()" onmouseout="noHover()">
+        <div class="animated flipInY col-lg-3 col-md-6 col-sm-6 col-xs-12" onmouseover="hovereffect()" onmouseout="noHover()">
 
             <div class="tile-stats top-tiles first-tile" id="first">
                 <div class="icon">
-                    <img class="icon-first-tile" id="BigBox" src="images/gym.png" />
-                    <img class="small-icons" id="smallBox" src="images/ball.png" />
+{{--                    <img class="icon-first-tile" id="BigBox" src="images/gym.png" />--}}
+{{--                    <img class="small-icons" id="smallBox" src="images/ball.png" />--}}
 
                 </div>
-                <p><a href="booking.php"  style="color:white !important;">Book Equipment</a></p>
+                <p><a href="{{route('booking.page')}}"  style="color:white !important;">Book Equipment</a></p>
                 <div class="count"></div>
             </div>
 
         </div>
 
-        @foreach($categories as $row)
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" >
-                <div class="tile-stats top-tiles second-tile">
-                    <div class="icon">
-
-                        <img class="icon-first-tile" src="{{asset('public/upload/category/'. $row->category_image)}}" id="showImage" height="100" width="100" style="border-radius: 5px;" alt="">
-{{--                        <img class="small-icons" src="images/outfield.png" />--}}
-                    </div>
-                    <p><a href="" style="color:white !important;">{{$row->category_name}}</a></p>
-                    <div class="count"></div>
-                </div>
-            </div>
-        @endforeach
-
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats top-tiles third-tile">
-                <div class="icon">
-                    <img class="small-icons" src="images/infield.png" />
-                </div>
-                <p ><a href="indoor_booking.php" style="color:white !important;">Book Indoor Court</a></p>
-                <div class="count"></div>
 
 
-            </div>
-        </div>
 
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats top-tiles fourth-tile">
                 <div class="icon">
                     <img class="small-icons" src="images/Return.png" />
                 </div>
-                <p><a href="view_bookings_accepted.php" style="color:white !important;">Confirmed Bookings</a></p>
+                <p><a href="{{route('booking.index')}}" style="color:white !important;">Confirmed Bookings</a></p>
                 <div class="count"></div>
             </div>
         </div>

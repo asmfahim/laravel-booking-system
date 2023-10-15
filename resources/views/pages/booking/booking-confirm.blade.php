@@ -5,6 +5,10 @@
 
 @endsection
 
+@php
+$usr = Auth::user();
+@endphp
+
 @section('content')
 
     <div class="clearfix"></div>
@@ -47,27 +51,31 @@
                                         {{$row->status === 1 ? 'Confirmed' : 'Pending'}}
                                     </td>
                                     <td>{{$row['user']['email']}}</td>
-                                    <td>
-                                        <ul class="d-flex justify-content-center list-inline">
-                                            {{--                                                @if (Auth::guard('admin')->user()->can('admin.edit'))--}}
-                                            <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.confirm',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Confirm</span></a></li>
+                                    @if ($usr->can('bk-confirm.view') || $usr->can('bk-delete.delete'))
+                                        <td>
+                                            <ul class="d-flex justify-content-center list-inline">
+                                                {{--                                                @if (Auth::guard('admin')->user()->can('admin.edit'))--}}
+                                                <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.confirm',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Confirm</span></a></li>
 
-                                            {{--                                                @endif--}}
-                                            {{--                                                @if (Auth::guard('admin')->user()->can('admin.delete'))--}}
-                                            <li class="h5 list-unstyled list-inline-item">
-                                                <a href="{{route('booking.destroy',$row->id)}}" class=" badge  badge-danger" onclick="show_confirm('delete-form-{{$row->id}}')">
-                                                    <span class="badge badge-danger">Delete</span>
-                                                </a>
+                                                {{--                                                @endif--}}
+                                                {{--                                                @if (Auth::guard('admin')->user()->can('admin.delete'))--}}
+                                                @if ( $usr->can('bk-delete.delete'))
+                                                <li class="h5 list-unstyled list-inline-item">
+                                                    <a href="{{route('booking.destroy',$row->id)}}" class=" badge  badge-danger" onclick="show_confirm('delete-form-{{$row->id}}')">
+                                                        <span class="badge badge-danger">Delete</span>
+                                                    </a>
 
-                                                <form id="delete-form-{{ $row->id }}" action="{{ route('booking.destroy', $row->id) }}" method="POST" style="display: none;">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                </form>
-                                            </li>
-                                            {{--                                                @endif--}}
+                                                    <form id="delete-form-{{ $row->id }}" action="{{ route('booking.destroy', $row->id) }}" method="POST" style="display: none;">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                                @endif
+                                                {{--                                                @endif--}}
 
-                                        </ul>
-                                    </td>
+                                            </ul>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
 
