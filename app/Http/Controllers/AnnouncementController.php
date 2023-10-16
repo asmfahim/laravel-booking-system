@@ -108,16 +108,17 @@ class AnnouncementController extends Controller
         ]);
 
         $uid = Auth::user()->getRoleNames();
+        $data = Announcement::find($id);
 //        dd($request->message_to);
         for($i = 0; $i <count($request->message_to); $i++){
-            Announcement::update([
-                'title' => $request->title,
-                'message' => $request->message,
-                'notice_date' => $request->notice_date,
-                'publish_date' => $request->publish_date,
-                'message_to' => $request->message_to[$i],
-                'created_by' => $uid[0],
-            ]);
+                $data->title = $request->title;
+                $data->message = $request->message;
+                $data->notice_date = $request->notice_date;
+                $data->publish_date = $request->publish_date;
+                $data->message_to = $request->message_to[$i];
+                $data->created_by = $uid[0];
+                $data->save();
+
         }
 
         session()->flash('success', 'Announcement has been updated !!');

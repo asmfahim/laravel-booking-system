@@ -54,7 +54,7 @@
                         <div class="row">
                             <div class=" form-group">
                                 <label for="exampleInputName3">Message</label>
-                                <textarea class="form-control @error('message') is-invalid @enderror" style="visibility: hidden; display: none;" id="editor1" name="message" rows="6" cols="80" required></textarea>
+                                <textarea class="form-control @error('message') is-invalid @enderror" style="visibility: hidden; display: none;" id="editor1" name="message" rows="6" cols="80"  required> {{$announcement->message}}</textarea>
                             </div>
                         </div>
                         <br>

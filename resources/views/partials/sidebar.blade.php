@@ -118,12 +118,12 @@ $usr = Auth::user();
                                 <li>
                                     <a href="{{route('booking.index')}}">Booking</a>
                                 </li>
-                                <li>
-                                    <a href="create_menu.php">Booking Create</a>
-                                </li>
-                                <li>
-                                    <a href="create_menu.php">Booking Edit</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="create_menu.php">Booking Create</a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="create_menu.php">Booking Edit</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </li>
                         @endif

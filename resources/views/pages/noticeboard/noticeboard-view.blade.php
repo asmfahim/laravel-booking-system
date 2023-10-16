@@ -19,14 +19,14 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <br>
-                        <h2>{{$row->strToUpper('title')}}</h2>
+                        <h2>{{Str::title($row->title)}}</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                         <div class="card" style="width: 100%;">
                             <div class="card-body">
-                                <h5 class="card-title">Notice Date: {{$row->notice->date}} to Publish Date: {{$row->publish_date}}</h5>
+                                <h5 class="card-title">Notice Date: {{$row->notice_date}} to Publish Date: {{$row->publish_date}}</h5>
 
                                 <blockquote class="blockquote mb-0">
                                     <p>{!! $row->message !!} </p>
