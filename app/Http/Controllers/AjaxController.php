@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AjaxController extends Controller
 {
@@ -46,7 +47,7 @@ class AjaxController extends Controller
 
         if($request->ajax())
         {
-            $data = Booking::orderBy('start',"ASC")->get();
+            $data = Booking::orderBy('start',"ASC")->where('status','=','1')->get();
             return response()->json($data);
         }
 
@@ -61,6 +62,14 @@ class AjaxController extends Controller
             return response()->json($event);
         }
 
+
+    }
+
+    public function My_Booking()
+    {
+        $uid = Auth::user()->id;
+        $booking = Booking::where('user_id','=',$uid)->get();
+        return view('pages.booking.user-booking-view',compact('booking'));
 
     }
 

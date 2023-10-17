@@ -58,6 +58,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/booking/data',[AjaxController::class,'Booking_Ajax'])->name('booking.ajax');
     Route::post('/booking/delete',[AjaxController::class,'Booking_Delete'])->name('booking.delete');
     Route::get('/booking/ajax/{id}',[AjaxController::class,'Sub_Ajax'])->name('subcategory.ajax');
+    //This Route for user wise booking list
+    Route::get('/booking/mybooking',[AjaxController::class,'My_Booking'])->name('booking.mybooking');
 
     //Route for NoticeBoard
     Route::get('/notice/board',[NoticeBoardController::class,'index'])->name('notice.index');

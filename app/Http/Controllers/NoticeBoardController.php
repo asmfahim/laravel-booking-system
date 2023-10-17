@@ -17,7 +17,7 @@ class NoticeBoardController extends Controller
 
 //            dd($roleId[0]->id);
         $notice = Announcement::whereDate('notice_date', '<=', (new DateTime)->format('Y-m-d'))
-                                ->whereDate('publish_date', '<=', (new DateTime)->format('Y-m-d'))
+                                ->whereDate('publish_date', '>=', (new DateTime)->format('Y-m-d'))
                                 ->where('message_to', '=',$roleId[0]->id )
                                 ->get();
 //        dd($notice);

@@ -199,11 +199,12 @@
                                 allDay: allDay,
 
                             },
+
                             true // make the event "stick"
                         );
 
                 },
-
+                eventColor: 'red',
                 eventClick:function(event)
                 {
                     if(confirm("Are you sure you want to remove it?"))

@@ -47,11 +47,11 @@ $usr = Auth::user();
                             <a href="{{route('booking.page')}}">Booking</a>
                         </li>
                     @endif
-                    @if ($usr->can('bk-confirm.view') || $usr->can('bk-confirm.delete'))
+
                         <li class="current-page">
-                            <a href="{{route('booking.index')}}">Booking Confirmation</a>
+                            <a href="{{route('booking.mybooking')}}">My Booking list</a>
                         </li>
-                    @endif
+
                       @if ($usr->can('user.view') || $usr->can('user.edit') || $usr->can('user.create') || $usr->can('user.delete'))
                         <li class="">
                             <a href="#">User<span class="fa fa-chevron-down"></span></a>
@@ -111,12 +111,12 @@ $usr = Auth::user();
                             </ul>
                         </li>
                         @endif
-                        @if ($usr->can('booking.view') || $usr->can('booking.edit') || $usr->can('booking.create') || $usr->can('booking.delete'))
+                        @if ($usr->can('bookings.view') || $usr->can('bookings.edit') || $usr->can('bookings.create') || $usr->can('bookings.delete'))
                         <li class="">
-                            <a href="#">Booking<span class="fa fa-chevron-down"></span></a>
+                            <a href="#">Admin Booking<span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu" style="display: none;">
                                 <li>
-                                    <a href="{{route('booking.index')}}">Booking</a>
+                                    <a href="{{route('booking.index')}}">Booking list</a>
                                 </li>
 {{--                                <li>--}}
 {{--                                    <a href="create_menu.php">Booking Create</a>--}}

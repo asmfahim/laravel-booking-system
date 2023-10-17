@@ -18,7 +18,7 @@ class BookingController extends Controller
     public function index()
     {
 
-        $booking = Booking::orderBy('id',"DESC")->get();
+        $booking = Booking::orderBy('id','DESC')->get();
 
         return view('pages.booking.booking-confirm',compact('booking',));
     }
@@ -54,7 +54,7 @@ class BookingController extends Controller
 
             ]);
             session()->flash('success', 'Booking has been created !!');
-            return redirect()->route('booking.index');
+            return redirect()->route('booking.mybooking');
 
     }
 
@@ -68,8 +68,8 @@ class BookingController extends Controller
     {
         if($request->ajax())
         {
-            $data = Booking::whereDate('start', '>=', $request->start)
-                ->whereDate('end',   '<=', $request->end)
+            $data = Booking::whereDate('start', '<=', $request->start)
+                ->whereDate('end',   '>=', $request->end)
                 ->get(['id', 'title', 'start', 'end','status']);
             return response()->json($data);
         }

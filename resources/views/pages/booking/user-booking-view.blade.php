@@ -6,7 +6,7 @@
 @endsection
 
 @php
-$usr = Auth::user();
+    $usr = Auth::user();
 @endphp
 
 @section('content')
@@ -51,29 +51,29 @@ $usr = Auth::user();
                                         {{$row->status === 1 ? 'Confirmed' : 'Pending'}}
                                     </td>
                                     <td>{{$row['user']['email']}}</td>
-                                    @if ($usr->can('bookings.view') || $usr->can('bookings.delete') || $usr->can('bookings.create') )
+                                    @if ($usr->can('booking.view') || $usr->can('booking.delete') || $usr->can('booking.create'))
                                         <td>
                                             <ul class="d-flex justify-content-center list-inline">
-                                                @if($usr->can('bookings.create'))
+                                                @if($usr->can('booking.create'))
                                                 {{--                                                @if (Auth::guard('admin')->user()->can('admin.edit'))--}}
                                                 <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.confirm',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Confirm</span></a></li>
 
-{{--                                                <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.edit',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Edit</span></a></li>--}}
+                                                {{--                                                <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.edit',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Edit</span></a></li>--}}
 
                                                 {{--                                                @endif--}}
                                                 {{--                                                @if (Auth::guard('admin')->user()->can('admin.delete'))--}}
                                                 @endif
-                                                @if ( $usr->can('bookings.delete'))
-                                                <li class="h5 list-unstyled list-inline-item">
-                                                    <a href="{{route('booking.destroy',$row->id)}}" class=" badge  badge-danger" onclick="show_confirm('delete-form-{{$row->id}}')">
-                                                        <span class="badge badge-danger">Delete</span>
-                                                    </a>
+                                                @if ( $usr->can('bk-delete.delete'))
+                                                    <li class="h5 list-unstyled list-inline-item">
+                                                        <a href="{{route('booking.destroy',$row->id)}}" class=" badge  badge-danger" onclick="show_confirm('delete-form-{{$row->id}}')">
+                                                            <span class="badge badge-danger">Delete</span>
+                                                        </a>
 
-                                                    <form id="delete-form-{{ $row->id }}" action="{{ route('booking.destroy', $row->id) }}" method="POST" style="display: none;">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                    </form>
-                                                </li>
+                                                        <form id="delete-form-{{ $row->id }}" action="{{ route('booking.destroy', $row->id) }}" method="POST" style="display: none;">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                        </form>
+                                                    </li>
                                                 @endif
                                                 {{--                                                @endif--}}
 
