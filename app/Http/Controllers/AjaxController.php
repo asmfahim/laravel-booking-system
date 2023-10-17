@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Category;
 use App\Models\SubCategory;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,7 @@ class AjaxController extends Controller
 
     public function index()
     {
+
 
         $categories = Category::orderBy('category_name',"ASC")->get();
 
@@ -47,9 +49,11 @@ class AjaxController extends Controller
 
         if($request->ajax())
         {
-            $data = Booking::orderBy('start',"ASC")->where('status','=','1')->get();
+            $data = Booking::whereDate('end', '>=', (new DateTime)->format('Y-m-d H:i:s'))
+                ->where('status', '=',1)->get();
             return response()->json($data);
         }
+
 
     }
 

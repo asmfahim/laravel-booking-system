@@ -66,13 +66,13 @@ class BookingController extends Controller
      */
     public function show(Request $request)
     {
-        if($request->ajax())
-        {
-            $data = Booking::whereDate('start', '<=', $request->start)
-                ->whereDate('end',   '>=', $request->end)
-                ->get(['id', 'title', 'start', 'end','status']);
-            return response()->json($data);
-        }
+//        if($request->ajax())
+//        {
+//            $data = Booking::whereDate('start', '<=', $request->start)
+//                ->whereDate('end',   '>=', $request->end)
+//                ->get(['id', 'title', 'start', 'end','status']);
+//            return response()->json($data);
+//        }
     }
 
     /**
