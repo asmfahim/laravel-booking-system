@@ -58,12 +58,12 @@ class AjaxController extends Controller
     }
 
     public function Booking_Delete(Request $request){
-
-        if($request->type == 'delete')
-        {
-            $event = Booking::find($request->id)->delete();
-
-            return response()->json($event);
+        $usr = Auth::user();
+        if($usr->can('bookings.delete')) {
+            if ($request->type == 'delete') {
+                $event = Booking::find($request->id)->delete();
+                return response()->json($event);
+            }
         }
 
 
@@ -72,7 +72,7 @@ class AjaxController extends Controller
     public function My_Booking()
     {
         $uid = Auth::user()->id;
-        $booking = Booking::where('user_id','=',$uid)->get();
+        $booking = Booking::where('user_id','=',$uid)->orderBy('id','DESC')->get();
         return view('pages.booking.user-booking-view',compact('booking'));
 
     }
