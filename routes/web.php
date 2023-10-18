@@ -5,6 +5,7 @@ use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NoticeBoardController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SubCategoryController;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function(){
 
     //Route For User view,Create,Update,Delete
     Route::resource('user', UserController::class,['names'=>'user'])->except([ 'show','create']);
+    Route::get('/user/pdf', [PdfController::class,'User_Pdf'])->name('user.pdf');
+
 
     //Route for Role view, create, update, delete
     Route::resource('roles', RolesController::class,['names'=>'roles'])->except([ 'show']);
@@ -60,6 +63,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/booking/ajax/{id}',[AjaxController::class,'Sub_Ajax'])->name('subcategory.ajax');
     //This Route for user wise booking list
     Route::get('/booking/mybooking',[AjaxController::class,'My_Booking'])->name('booking.mybooking');
+    //Route for booking pdf
+    Route::get('/booking/pdf', [PdfController::class,'Booking_Pdf'])->name('booking.pdf');
 
     //Route for NoticeBoard
     Route::get('/notice/board',[NoticeBoardController::class,'index'])->name('notice.index');

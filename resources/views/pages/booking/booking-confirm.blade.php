@@ -2,7 +2,11 @@
 @section('title','Booking Confirm')
 
 @section('style-css')
-
+    <style>
+        #pdf{
+            float:right;
+        }
+    </style>
 @endsection
 
 @php
@@ -21,6 +25,7 @@ $usr = Auth::user();
                     <div class="x_title">
                         <br>
                         <h2>Accepted Bookings List</h2>
+                        <a id="pdf" href="{{route('booking.pdf')}}" class="btn btn-success">Export Pdf</a>
                         <div class="clearfix"></div>
                         <i><span style="color:red;">If you do not see you booking request in this list within 48 hours of booking request, <br> please contact administration. You booking request may have been rejected.</span></i>
                     </div>
@@ -55,13 +60,8 @@ $usr = Auth::user();
                                         <td>
                                             <ul class="d-flex justify-content-center list-inline">
                                                 @if($usr->can('bookings.create'))
-                                                {{--                                                @if (Auth::guard('admin')->user()->can('admin.edit'))--}}
+
                                                 <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.confirm',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Confirm</span></a></li>
-
-{{--                                                <li class="mr-2 h5 list-unstyled list-inline-item"><a href="{{route('booking.edit',$row->id)}}" class="text-secondary badge badge-secondary"><span class="badge badge-secondary">Edit</span></a></li>--}}
-
-                                                {{--                                                @endif--}}
-                                                {{--                                                @if (Auth::guard('admin')->user()->can('admin.delete'))--}}
                                                 @endif
                                                 @if ( $usr->can('bookings.delete'))
                                                 <li class="h5 list-unstyled list-inline-item">
@@ -75,7 +75,6 @@ $usr = Auth::user();
                                                     </form>
                                                 </li>
                                                 @endif
-                                                {{--                                                @endif--}}
 
                                             </ul>
                                         </td>

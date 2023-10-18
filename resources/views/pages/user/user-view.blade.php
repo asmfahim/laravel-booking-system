@@ -2,7 +2,11 @@
 @section('title','User List')
 
 @section('style-css')
-
+    <style>
+        #pdf{
+            float:right;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -77,6 +81,7 @@
                     <div class="x_title">
                         <br>
                         <h2>User List</h2>
+                        <a id="pdf" href="{{route('user.pdf')}}" class="btn btn-success">Export Pdf</a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
